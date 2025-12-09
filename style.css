@@ -210,4 +210,35 @@ button {
   color: #e2e8f0;
   font-size: 16px;
 }
+/* 曲名（リンク）を見やすくする */
+.song-info a {
+  color: #ffffff;        /* 明るくてクッキリ白 */
+  font-weight: 600;      /* 少し太くする */
+  font-size: 18px;       /* スマホで少し大きく */
+  text-decoration: none; /* 下線を消す */
+}
+
+/* タップ時の色 */
+.song-info a:active {
+  color: #a0c4ff;        /* タップ時に少し青く光る */
+}
+
+/* アーティスト名 */
+.artist {
+  color: #d1d5db;  /* 少し薄めのグレー */
+  font-size: 14px;
+}
+
+/* スマホ専用調整 */
+@media (max-width: 600px) {
+  .song-info a {
+    font-size: 20px;  /* スマホでは更に大きく */
+    color: #ffffff;   /* 明るい文字色 */
+  }
+
+  .artist {
+    font-size: 16px;
+  }
+}
+
 
