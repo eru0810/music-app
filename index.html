@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Music List（ローカル）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- 編集モーダル -->
+<div id="editModal" class="modal hidden">
+  <div class="modal-content">
+    <h2>編集</h2>
+    <input id="editTitle" placeholder="曲名">
+    <input id="editArtist" placeholder="アーティスト名">
+    <input id="editUrl" placeholder="YouTube URL">
+    <select id="editCategory">
+      <option value="お気に入り">お気に入り</option>
+      <option value="カラオケ">カラオケ</option>
+    </select>
+
+    <button class="save-btn" onclick="saveEdit()">保存</button>
+    <button class="cancel-btn" onclick="closeEdit()">閉じる</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+
+<body>
+
+<h1>🎵 My Music List（ローカル保存）</h1>
+
+<input id="title" placeholder="曲名">
+<input id="artist" placeholder="アーティスト名">
+<select id="category">
+  <option value="お気に入り">お気に入り</option>
+  <option value="カラオケ">カラオケ</option>
+</select>
+<input id="url" placeholder="YouTube URL（空なら検索リンク）">
+
+<button class="add-btn" onclick="addSong()">追加</button>
+
+<!-- カテゴリータブ -->
+<div class="tabs">
+  <div class="tab active" onclick="changeTab('all')" id="tab-all">全部（0）</div>
+  <div class="tab" onclick="changeTab('お気に入り')" id="tab-fav">お気に入り（0）</div>
+  <div class="tab" onclick="changeTab('カラオケ')" id="tab-karaoke">カラオケ（0）</div>
+</div>
+
+<input id="searchInput" type="text"
+       placeholder="曲名・アーティストで検索"
+       oninput="searchSongs()">
+
+
+<div id="songList"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
