@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -22,11 +22,6 @@ input {
   font-size: 16px;
 }
 
-button {
-  border: none;
-  cursor: pointer;
-}
-
 .add-btn {
   width: 100%;
   background: #3b82f6;
@@ -37,42 +32,33 @@ button {
   margin-bottom: 16px;
 }
 
-.add-btn:hover {
-  background: #60a5fa;
-}
-
-/* タグのチェックボックス */
-.tag-checkbox-area label {
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* タブ */
 .tabs {
   display: flex;
   gap: 6px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .tab {
-  padding: 10px 12px;
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
   background: #1e293b;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 16px;
   transition: 0.2s;
-  font-size: 15px;
 }
 
 .tab.active {
   background: #3b82f6;
   color: white;
+  transform: scale(1.03);
+  box-shadow: 0 0 8px #3b82f6;
 }
 
-/* 曲カード */
 .song {
   background: #1e293b;
-  padding: 12px;
+  padding: 14px;
   border-radius: 12px;
   margin-bottom: 14px;
 }
@@ -80,6 +66,11 @@ button {
 .song-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.song-info {
+  flex: 1;
 }
 
 .song-info a {
@@ -94,34 +85,30 @@ button {
   color: #d1d5db;
 }
 
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .tag {
   background: #3b82f6;
   padding: 2px 6px;
-  border-radius: 6px;
   font-size: 12px;
-  margin-right: 6px;
+  border-radius: 6px;
+  margin-right: 5px;
 }
 
-/* 削除ボタン */
-.delete-btn {
-  background: #ef4444;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  color: white;
-  font-size: 18px;
+.tags {
+  margin-top: 4px;
 }
 
-.edit-btn {
-  background: #14b8a6;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  color: white;
-  font-size: 18px;
-}
-
-/* モーダル */
 .modal {
   position: fixed;
   top: 0;
@@ -139,32 +126,7 @@ button {
   padding: 20px;
   border-radius: 12px;
   width: 90%;
-  max-width: 380px;
+  max-width: 360px;
 }
 
-.hidden {
-  display: none;
-}
-
-.tag-item {
-  background: #334155;
-  padding: 8px;
-  border-radius: 8px;
-  margin-bottom: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.tag-delete-btn {
-  background: #ef4444;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  color: white;
-}
-
-.ghost {
-  opacity: 0.4;
-  background: #475569;
-}
+.hidden { display: none; }
