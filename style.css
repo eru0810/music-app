@@ -7,11 +7,11 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 26px;
   margin-bottom: 20px;
 }
 
-input, select {
+input {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
@@ -41,29 +41,32 @@ button {
   background: #60a5fa;
 }
 
+/* タグのチェックボックス */
+.tag-checkbox-area label {
+  display: block;
+  margin-bottom: 6px;
+}
+
 /* タブ */
 .tabs {
   display: flex;
   gap: 6px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .tab {
-  flex: 1;
-  text-align: center;
-  padding: 12px 0;
+  padding: 10px 12px;
   background: #1e293b;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
   transition: 0.2s;
+  font-size: 15px;
 }
 
 .tab.active {
   background: #3b82f6;
   color: white;
-  transform: scale(1.03);
-  box-shadow: 0 0 8px #3b82f6;
 }
 
 /* 曲カード */
@@ -77,68 +80,48 @@ button {
 .song-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.song-info {
-  flex: 1;
+.song-info a {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .artist {
-  font-size: 12px;
+  font-size: 14px;
   color: #d1d5db;
 }
 
-.thumbnail {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 6px;
-}
-
-.delete-btn {
-  background: #ef4444;
-  color: white;
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.delete-btn:hover {
-  background: #ff6666;
-}
-
-/* タグ */
 .tag {
   background: #3b82f6;
   padding: 2px 6px;
-  color: white;
-  font-size: 12px;
   border-radius: 6px;
-  margin-left: 6px;
+  font-size: 12px;
+  margin-right: 6px;
 }
-@media (max-width: 600px) {
-  .song {
-    padding: 10px;
-  }
-  .thumbnail {
-    border-radius: 8px;
-  }
-  .delete-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  }
+
+/* 削除ボタン */
+.delete-btn {
+  background: #ef4444;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
 }
-/* ------ 編集モーダル ------ */
+
+.edit-btn {
+  background: #14b8a6;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+}
+
+/* モーダル */
 .modal {
   position: fixed;
   top: 0;
@@ -151,95 +134,37 @@ button {
   justify-content: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .modal-content {
   background: #1e293b;
   padding: 20px;
   border-radius: 12px;
   width: 90%;
-  max-width: 360px;
+  max-width: 380px;
 }
 
-.modal-content input,
-.modal-content select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+.hidden {
+  display: none;
+}
+
+.tag-item {
+  background: #334155;
+  padding: 8px;
   border-radius: 8px;
-  border: none;
-  background: #0f172a;
-  color: white;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.save-btn {
-  background: #3b82f6;
-  padding: 10px;
-  border-radius: 8px;
-  color: white;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.cancel-btn {
+.tag-delete-btn {
   background: #ef4444;
-  padding: 10px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   color: white;
-  width: 100%;
 }
+
 .ghost {
   opacity: 0.4;
   background: #475569;
 }
-.player {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
-  margin-top: 6px;
-}
-#searchInput {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: none;
-  background: #0f172a;
-  color: #e2e8f0;
-  font-size: 16px;
-}
-/* 曲名（リンク）を見やすくする */
-.song-info a {
-  color: #ffffff;        /* 明るくてクッキリ白 */
-  font-weight: 600;      /* 少し太くする */
-  font-size: 18px;       /* スマホで少し大きく */
-  text-decoration: none; /* 下線を消す */
-}
-
-/* タップ時の色 */
-.song-info a:active {
-  color: #a0c4ff;        /* タップ時に少し青く光る */
-}
-
-/* アーティスト名 */
-.artist {
-  color: #d1d5db;  /* 少し薄めのグレー */
-  font-size: 14px;
-}
-
-/* スマホ専用調整 */
-@media (max-width: 600px) {
-  .song-info a {
-    font-size: 20px;  /* スマホでは更に大きく */
-    color: #ffffff;   /* 明るい文字色 */
-  }
-
-  .artist {
-    font-size: 16px;
-  }
-}
-
-
-
